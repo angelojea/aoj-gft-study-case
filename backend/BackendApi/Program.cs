@@ -2,6 +2,7 @@ using Application.Interfaces;
 using Application.Services;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Repositories;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -19,6 +20,11 @@ builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 builder.Services.AddScoped<CompanyService>();
 builder.Services.AddScoped<ContactService>();
 builder.Services.AddScoped<AddressService>();
+
+builder.Services.AddHttpClient<IViaCepService, ViaCepService>(client =>
+{
+    client.BaseAddress = new Uri("https://viacep.com.br/ws/");
+});
 
 builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();

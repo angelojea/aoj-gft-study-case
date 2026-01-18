@@ -1,3 +1,4 @@
+using Application.Interfaces;
 using Application.Services;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,12 @@ namespace BackendApi.Controllers;
 public class AddressesController : ControllerBase
 {
     private readonly AddressService _addressService;
+    private readonly IViaCepService _viaCepService;
 
-    public AddressesController(AddressService addressService)
+    public AddressesController(AddressService addressService, IViaCepService viaCepService)
     {
         _addressService = addressService;
+        _viaCepService = viaCepService;
     }
 
     [HttpGet]
@@ -34,22 +37,30 @@ public class AddressesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Address address)
+    public async Task<IActionResult> CreateFromZip(string zipCode)
     {
-        await _addressService.AddAddressAsync(address);
-        return CreatedAtAction(nameof(GetById), new { id = address.Id }, address);
-    }
-
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Update(Guid id, Address address)
-    {
-        if (id != address.Id)
+        var viaCepAddress = await _viaCepService.GetAddressByZipCodeAsync(zipCode);
+        if (viaCepAddress == null)
         {
-            return BadRequest();
+            return NotFound("Zip code not found.");
         }
 
-        await _addressService.UpdateAddressAsync(address);
-        return NoContent();
+        var address = new Address
+        {
+            Zip = viaCepAddress.Cep.Replace("-", ""),
+            Street = viaCepAddress.Logradouro,
+            Complement = viaCepAddress.Complemento,
+            Neighborhood = viaCepAddress.Bairro,
+            City = viaCepAddress.Localidade,
+            Uf = viaCepAddress.Uf,
+            Ibge = viaCepAddress.Ibge,
+            Gia = viaCepAddress.Gia,
+            Ddd = viaCepAddress.Ddd,
+            Siafi = viaCepAddress.Siafi
+        };
+
+        await _addressService.AddAddressAsync(address);
+        return CreatedAtAction(nameof(GetById), new { id = address.Id }, address);
     }
 
     [HttpDelete("{id}")]
