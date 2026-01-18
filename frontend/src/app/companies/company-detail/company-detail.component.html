@@ -1,0 +1,20 @@
+<p-toast></p-toast>
+<div class="card">
+    <h2>{{ isEditMode ? 'Edit Company' : 'New Company' }}</h2>
+    <form [formGroup]="companyForm" (ngSubmit)="save()">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="name">Name</label>
+                <input id="name" type="text" pInputText formControlName="name">
+            </div>
+            <div class="p-field">
+                <label for="cnpj">CNPJ</label>
+                <input id="cnpj" type="text" pInputText formControlName="cnpj">
+            </div>
+        </div>
+        <div class="p-toolbar-group-end mt-2">
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-success" type="submit" [disabled]="companyForm.invalid"></button>
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-secondary ml-2" (click)="cancel()"></button>
+        </div>
+    </form>
+</div>

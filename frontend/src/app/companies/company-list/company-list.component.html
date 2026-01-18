@@ -1,0 +1,38 @@
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+<div class="card">
+    <p-toolbar>
+        <div class="p-toolbar-group-start">
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success" (click)="addNew()"></button>
+        </div>
+    </p-toolbar>
+
+    <p-table [value]="companies" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>CNPJ</th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-company>
+            <tr>
+                <td>{{company.name}}</td>
+                <td>{{company.cnpj}}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-info mr-2" (click)="viewDetails(company)"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCompany(company)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteCompany(company)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog header="Company Details" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+    <div *ngIf="selectedCompany">
+        <p><strong>Name:</strong> {{selectedCompany.name}}</p>
+        <p><strong>CNPJ:</strong> {{selectedCompany.cnpj}}</p>
+    </div>
+</p-dialog>

@@ -1,0 +1,28 @@
+<p-toast></p-toast>
+<div class="card">
+    <h2>{{ isEditMode ? 'Edit Address' : 'New Address' }}</h2>
+    <form [formGroup]="addressForm" (ngSubmit)="save()">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="street">Street</label>
+                <input id="street" type="text" pInputText formControlName="street">
+            </div>
+            <div class="p-field">
+                <label for="city">City</label>
+                <input id="city" type="text" pInputText formControlName="city">
+            </div>
+            <div class="p-field">
+                <label for="state">State</label>
+                <input id="state" type="text" pInputText formControlName="state">
+            </div>
+            <div class="p-field">
+                <label for="zipCode">Zip Code</label>
+                <input id="zipCode" type="text" pInputText formControlName="zipCode">
+            </div>
+        </div>
+        <div class="p-toolbar-group-end mt-2">
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-success" type="submit" [disabled]="addressForm.invalid"></button>
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-secondary ml-2" (click)="cancel()"></button>
+        </div>
+    </form>
+</div>

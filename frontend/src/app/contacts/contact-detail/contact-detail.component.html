@@ -1,0 +1,24 @@
+<p-toast></p-toast>
+<div class="card">
+    <h2>{{ isEditMode ? 'Edit Contact' : 'New Contact' }}</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="save()">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="name">Name</label>
+                <input id="name" type="text" pInputText formControlName="name">
+            </div>
+            <div class="p-field">
+                <label for="email">Email</label>
+                <input id="email" type="text" pInputText formControlName="email">
+            </div>
+            <div class="p-field">
+                <label for="phone">Phone</label>
+                <input id="phone" type="text" pInputText formControlName="phone">
+            </div>
+        </div>
+        <div class="p-toolbar-group-end mt-2">
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-success" type="submit" [disabled]="contactForm.invalid"></button>
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-secondary ml-2" (click)="cancel()"></button>
+        </div>
+    </form>
+</div>
