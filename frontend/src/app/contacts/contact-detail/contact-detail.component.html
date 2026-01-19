@@ -3,24 +3,39 @@
     <form [formGroup]="contactForm" (ngSubmit)="save()">
       <div class="formgrid grid">
         <div class="field col-12 md:col-6">
-          <label for="firstName">{{ 'contact.firstName' | translate }}</label>
-          <input id="firstName" type="text" pInputText formControlName="firstName">
+          <span class="p-float-label">
+            <input id="firstName" type="text" pInputText formControlName="firstName" class="w-full">
+            <label for="firstName">{{ 'contact.firstName' | translate }}</label>
+          </span>
+          <small *ngIf="contactForm.controls['firstName'].invalid && contactForm.controls['firstName'].touched" class="p-error">{{'validations.required' | translate}}</small>
         </div>
         <div class="field col-12 md:col-6">
-          <label for="lastName">{{ 'contact.lastName' | translate }}</label>
-          <input id="lastName" type="text" pInputText formControlName="lastName">
+          <span class="p-float-label">
+            <input id="lastName" type="text" pInputText formControlName="lastName" class="w-full">
+            <label for="lastName">{{ 'contact.lastName' | translate }}</label>
+          </span>
+          <small *ngIf="contactForm.controls['lastName'].invalid && contactForm.controls['lastName'].touched" class="p-error">{{'validations.required' | translate}}</small>
         </div>
         <div class="field col-12 md:col-6">
-          <label for="email">{{ 'contact.email' | translate }}</label>
-          <input id="email" type="text" pInputText formControlName="email">
+          <span class="p-float-label">
+            <input id="email" type="text" pInputText formControlName="email" class="w-full">
+            <label for="email">{{ 'contact.email' | translate }}</label>
+          </span>
+          <small *ngIf="contactForm.controls['email'].invalid && contactForm.controls['email'].touched" class="p-error">{{'validations.email' | translate}}</small>
         </div>
         <div class="field col-12 md:col-6">
-          <label for="cpf">{{ 'contact.cpf' | translate }}</label>
-          <input id="cpf" type="text" pInputText formControlName="cpf">
+          <span class="p-float-label">
+            <input id="cpf" type="text" pInputText formControlName="cpf" class="w-full">
+            <label for="cpf">{{ 'contact.cpf' | translate }}</label>
+          </span>
+          <small *ngIf="contactForm.controls['cpf'].invalid && contactForm.controls['cpf'].touched" class="p-error">{{'validations.cpf' | translate}}</small>
         </div>
         <div class="field col-12 md:col-6">
-          <label for="dateOfBirth">{{ 'contact.dateOfBirth' | translate }}</label>
-          <input id="dateOfBirth" type="date" pInputText formControlName="dateOfBirth">
+          <span class="p-float-label">
+            <p-calendar id="dateOfBirth" formControlName="dateOfBirth" dateFormat="yy-mm-dd" class="w-full"></p-calendar>
+            <label for="dateOfBirth">{{ 'contact.dateOfBirth' | translate }}</label>
+          </span>
+          <small *ngIf="contactForm.controls['dateOfBirth'].invalid && contactForm.controls['dateOfBirth'].touched" class="p-error">{{'validations.dateOfBirth' | translate}}</small>
         </div>
       </div>
       <div class="flex justify-content-end gap-2 mt-2">

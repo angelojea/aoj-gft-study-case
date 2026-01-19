@@ -36,5 +36,20 @@
     "gia": "GIA",
     "ddd": "DDD",
     "siafi": "SIAFI"
+  },
+  "home": {
+    "title": "Proof of Concept",
+    "subtitle": "This is a proof-of-concept application developed by Angel Ojea for GFT & Banco Pan, demonstrating modern web application capabilities."
+  },
+  "validations": {
+    "required": "This field is required.",
+    "minLength": "This field must have at least {{value}} characters.",
+    "maxLength": "This field must have at most {{value}} characters.",
+    "cnpj": "This CNPJ is not valid.",
+    "dateFounded": "The date founded cannot be in the future.",
+    "email": "This email is not valid.",
+    "cpf": "This CPF is not valid.",
+    "dateOfBirth": "The contact must be at least 10 years old.",
+    "zip": "This CEP is not valid."
   }
 }

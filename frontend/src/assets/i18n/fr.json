@@ -36,5 +36,20 @@
     "gia": "GIA",
     "ddd": "DDD",
     "siafi": "SIAFI"
+  },
+  "home": {
+    "title": "Preuve de concept",
+    "subtitle": "Il s'agit d'une application de démonstration de faisabilité développée par Angel Ojea pour GFT & Banco Pan, illustrant les capacités des applications web modernes."
+  },
+  "validations": {
+    "required": "Ce champ est requis.",
+    "minLength": "Ce champ doit comporter au moins {{value}} caractères.",
+    "maxLength": "Ce champ ne peut pas dépasser {{value}} caractères.",
+    "cnpj": "Ce CNPJ n'est pas valide.",
+    "dateFounded": "La date de création ne peut pas être dans le futur.",
+    "email": "Cet email n'est pas valide.",
+    "cpf": "Ce CPF n'est pas valide.",
+    "dateOfBirth": "Le contact doit être âgé d'au moins 10 ans.",
+    "zip": "Ce code postal n'est pas valide."
   }
 }

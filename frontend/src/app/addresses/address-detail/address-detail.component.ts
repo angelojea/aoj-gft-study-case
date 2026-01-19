@@ -49,7 +49,7 @@ export class AddressDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.addressId = +this.route.snapshot.params['id'];
+    this.addressId = this.route.snapshot.params['id'];
     if (this.addressId) {
       this.isEditMode = true;
       this.addressService.getAddress(this.addressId).subscribe((address) => {

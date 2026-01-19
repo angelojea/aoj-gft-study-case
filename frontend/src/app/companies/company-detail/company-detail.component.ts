@@ -11,9 +11,11 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { CompanyService } from '../company.service';
 
+import { CustomValidators } from '../../shared/validators/validations';
 // PrimeNG Modules
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
@@ -26,6 +28,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
+    CalendarModule,
     TranslateModule,
   ],
   templateUrl: './company-detail.component.html',
@@ -60,13 +63,16 @@ export class CompanyDetailComponent implements OnInit {
           Validators.maxLength(100),
         ],
       ],
-      cnpj: ['', [Validators.required, this.cnpjValidator]],
-      dateFounded: ['', [Validators.required, this.dateFoundedValidator]],
+      cnpj: ['', [Validators.required, CustomValidators.cnpjValidator]],
+      dateFounded: [
+        '',
+        [Validators.required, CustomValidators.dateFoundedValidator],
+      ],
     });
   }
 
   ngOnInit(): void {
-    this.companyId = +this.route.snapshot.params['id'];
+    this.companyId = this.route.snapshot.params['id'];
     if (this.companyId) {
       this.isEditMode = true;
       this.companyService.getCompany(this.companyId).subscribe((company) => {
@@ -107,23 +113,5 @@ export class CompanyDetailComponent implements OnInit {
 
   cancel(): void {
     window.history.back();
-  }
-
-  private cnpjValidator(control: any): { [key: string]: boolean } | null {
-    const cnpj = control.value.replace(/\D/g, '');
-    if (cnpj.length !== 14) {
-      return { cnpjNotValid: true };
-    }
-    return null;
-  }
-
-  private dateFoundedValidator(
-    control: any,
-  ): { [key: string]: boolean } | null {
-    const date = new Date(control.value);
-    if (date > new Date()) {
-      return { dateFoundedInFuture: true };
-    }
-    return null;
   }
 }

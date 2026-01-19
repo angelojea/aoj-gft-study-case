@@ -36,5 +36,20 @@
     "gia": "GIA",
     "ddd": "DDD",
     "siafi": "SIAFI"
+  },
+  "home": {
+    "title": "Prova de Conceito",
+    "subtitle": "Este é um aplicativo de prova de conceito developed by Angel Ojea para o GFT & Banco Pan, demonstrando as capacidades de um aplicativo web moderno."
+  },
+  "validations": {
+    "required": "Este campo é obrigatório.",
+    "minLength": "Este campo deve ter no mínimo {{value}} caracteres.",
+    "maxLength": "Este campo deve ter no máximo {{value}} caracteres.",
+    "cnpj": "Este CNPJ não é válido.",
+    "dateFounded": "A data de fundação não pode ser no futuro.",
+    "email": "Este email não é válido.",
+    "cpf": "Este CPF não é válido.",
+    "dateOfBirth": "O contato deve ter pelo menos 10 anos de idade.",
+    "zip": "Este CEP não é válido."
   }
 }

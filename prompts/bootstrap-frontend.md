@@ -15,7 +15,6 @@ You are a senior software engineer specializing in Angular. Your goal is to refa
 In the frontend folder create a new Angular application following some constraints:
 
 - It must use PrimeNG library as primary source of UI components
-- It must use Formik to manage all forms, states and validations
 - The application should be ready for i18n and have 4 languages by default: Portuguese, English, Spanish and French
 - It must have header, menu and footer in separate components
 - The footer should contain a language selector

@@ -1,4 +1,5 @@
 import {
+  HTTP_INTERCEPTORS,
   HttpClient,
   provideHttpClient,
   withInterceptorsFromDi,
@@ -16,6 +17,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 
 import { routes } from './app.routes';
+import { HttpSpinnerInterceptor } from './shared/interceptors/http-spinner.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,5 +40,10 @@ export const appConfig: ApplicationConfig = {
       ToastModule,
     ),
     MessageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpSpinnerInterceptor,
+      multi: true,
+    },
   ],
 };

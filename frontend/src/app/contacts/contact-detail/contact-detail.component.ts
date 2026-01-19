@@ -11,9 +11,11 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ContactService } from '../contact.service';
 
+import { CustomValidators } from '../../shared/validators/validations';
 // PrimeNG Modules
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
@@ -26,6 +28,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
+    CalendarModule,
     TranslateModule,
   ],
   templateUrl: './contact-detail.component.html',
@@ -61,13 +64,16 @@ export class ContactDetailComponent implements OnInit {
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
-      cpf: ['', [Validators.required, this.cpfValidator]],
-      dateOfBirth: ['', [Validators.required, this.dateOfBirthValidator]],
+      cpf: ['', [Validators.required, CustomValidators.cpfValidator]],
+      dateOfBirth: [
+        '',
+        [Validators.required, CustomValidators.dateOfBirthValidator],
+      ],
     });
   }
 
   ngOnInit(): void {
-    this.contactId = +this.route.snapshot.params['id'];
+    this.contactId = this.route.snapshot.params['id'];
     if (this.contactId) {
       this.isEditMode = true;
       this.contactService.getContact(this.contactId).subscribe((contact) => {
@@ -108,29 +114,5 @@ export class ContactDetailComponent implements OnInit {
 
   cancel(): void {
     window.history.back();
-  }
-
-  private cpfValidator(control: any): { [key: string]: boolean } | null {
-    const cpf = control.value.replace(/\D/g, '');
-    if (cpf.length !== 11) {
-      return { cpfNotValid: true };
-    }
-    return null;
-  }
-
-  private dateOfBirthValidator(
-    control: any,
-  ): { [key: string]: boolean } | null {
-    const date = new Date(control.value);
-    const today = new Date();
-    const tenYearsAgo = new Date(
-      today.getFullYear() - 10,
-      today.getMonth(),
-      today.getDate(),
-    );
-    if (date > tenYearsAgo) {
-      return { dateOfBirthNotOldEnough: true };
-    }
-    return null;
   }
 }

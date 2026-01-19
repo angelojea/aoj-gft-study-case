@@ -3,20 +3,32 @@
     <form [formGroup]="companyForm" (ngSubmit)="save()">
       <div class="formgrid grid">
         <div class="field col-12 md:col-6">
-          <label for="name">{{ 'company.name' | translate }}</label>
-          <input id="name" type="text" pInputText formControlName="name">
+          <span class="p-float-label">
+            <input id="name" type="text" pInputText formControlName="name" class="w-full">
+            <label for="name">{{ 'company.name' | translate }}</label>
+          </span>
+          <small *ngIf="companyForm.controls['name'].invalid && companyForm.controls['name'].touched" class="p-error">{{'validations.required' | translate}}</small>
         </div>
         <div class="field col-12 md:col-6">
-          <label for="description">{{ 'company.description' | translate }}</label>
-          <input id="description" type="text" pInputText formControlName="description">
+          <span class="p-float-label">
+            <input id="description" type="text" pInputText formControlName="description" class="w-full">
+            <label for="description">{{ 'company.description' | translate }}</label>
+          </span>
+          <small *ngIf="companyForm.controls['description'].invalid && companyForm.controls['description'].touched" class="p-error">{{'validations.required' | translate}}</small>
         </div>
         <div class="field col-12 md:col-6">
-          <label for="cnpj">{{ 'company.cnpj' | translate }}</label>
-          <input id="cnpj" type="text" pInputText formControlName="cnpj">
+          <span class="p-float-label">
+            <input id="cnpj" type="text" pInputText formControlName="cnpj" class="w-full">
+            <label for="cnpj">{{ 'company.cnpj' | translate }}</label>
+          </span>
+          <small *ngIf="companyForm.controls['cnpj'].invalid && companyForm.controls['cnpj'].touched" class="p-error">{{'validations.cnpj' | translate}}</small>
         </div>
         <div class="field col-12 md:col-6">
-          <label for="dateFounded">{{ 'company.dateFounded' | translate }}</label>
-          <input id="dateFounded" type="date" pInputText formControlName="dateFounded">
+          <span class="p-float-label">
+            <p-calendar id="dateFounded" formControlName="dateFounded" dateFormat="yy-mm-dd" class="w-full"></p-calendar>
+            <label for="dateFounded">{{ 'company.dateFounded' | translate }}</label>
+          </span>
+          <small *ngIf="companyForm.controls['dateFounded'].invalid && companyForm.controls['dateFounded'].touched" class="p-error">{{'validations.dateFounded' | translate}}</small>
         </div>
       </div>
       <div class="flex justify-content-end gap-2 mt-2">
