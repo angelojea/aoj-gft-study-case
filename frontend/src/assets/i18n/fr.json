@@ -9,18 +9,27 @@
     "name": "Nom",
     "description": "Description",
     "cnpj": "CNPJ",
-    "dateFounded": "Date de Fondation"
+    "dateFounded": "Date de Fondation",
+    "edit": "Modifier l'Entreprise",
+    "new": "Nouvelle Entreprise",
+    "details": "Détails de l'Entreprise"
   },
   "buttons": {
     "save": "Enregistrer",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "new": "Nouveau",
+    "actions": "Actions"
   },
   "contact": {
     "firstName": "Prénom",
     "lastName": "Nom de Famille",
     "email": "Email",
     "cpf": "CPF",
-    "dateOfBirth": "Date de Naissance"
+    "dateOfBirth": "Date de Naissance",
+    "edit": "Modifier le Contact",
+    "new": "Nouveau Contact",
+    "details": "Détails du Contact",
+    "phone": "Téléphone"
   },
   "address": {
     "zip": "Code Postal",
@@ -35,11 +44,18 @@
     "ibge": "IBGE",
     "gia": "GIA",
     "ddd": "DDD",
-    "siafi": "SIAFI"
+    "siafi": "SIAFI",
+    "edit": "Modifier l'Adresse",
+    "new": "Nouvelle Adresse",
+    "details": "Détails de l'Adresse",
+    "zipCode": "Code Postal"
   },
   "home": {
     "title": "Preuve de concept",
     "subtitle": "Il s'agit d'une application de démonstration de faisabilité développée par Angel Ojea pour GFT & Banco Pan, illustrant les capacités des applications web modernes."
+  },
+  "table": {
+    "showingEntries": "Affichage de {first} à {last} sur {totalRecords} entrées"
   },
   "validations": {
     "required": "Ce champ est requis.",

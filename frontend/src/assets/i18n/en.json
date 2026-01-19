@@ -9,18 +9,27 @@
     "name": "Name",
     "description": "Description",
     "cnpj": "CNPJ",
-    "dateFounded": "Date Founded"
+    "dateFounded": "Date Founded",
+    "edit": "Edit Company",
+    "new": "New Company",
+    "details": "Company Details"
   },
   "buttons": {
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "new": "New",
+    "actions": "Actions"
   },
   "contact": {
     "firstName": "First Name",
     "lastName": "Last Name",
     "email": "Email",
     "cpf": "CPF",
-    "dateOfBirth": "Date of Birth"
+    "dateOfBirth": "Date of Birth",
+    "edit": "Edit Contact",
+    "new": "New Contact",
+    "details": "Contact Details",
+    "phone": "Phone"
   },
   "address": {
     "zip": "Zip",
@@ -35,11 +44,18 @@
     "ibge": "IBGE",
     "gia": "GIA",
     "ddd": "DDD",
-    "siafi": "SIAFI"
+    "siafi": "SIAFI",
+    "edit": "Edit Address",
+    "new": "New Address",
+    "details": "Address Details",
+    "zipCode": "Zip Code"
   },
   "home": {
     "title": "Proof of Concept",
     "subtitle": "This is a proof-of-concept application developed by Angel Ojea for GFT & Banco Pan, demonstrating modern web application capabilities."
+  },
+  "table": {
+    "showingEntries": "Showing {first} to {last} of {totalRecords} entries"
   },
   "validations": {
     "required": "This field is required.",

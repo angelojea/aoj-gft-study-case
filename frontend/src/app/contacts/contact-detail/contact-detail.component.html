@@ -1,5 +1,5 @@
 <div class="card">
-    <h2>{{ isEditMode ? 'Edit Contact' : 'New Contact' }}</h2>
+    <h2>{{ isEditMode ? ('contact.edit' | translate) : ('contact.new' | translate) }}</h2>
     <form [formGroup]="contactForm">
       <div class="flex flex-col gap-2">
         <div class="field">

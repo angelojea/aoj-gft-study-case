@@ -3,17 +3,17 @@
 <div class="card">
     <p-toolbar styleClass="mb-2">
         <div class="p-toolbar-group-start">
-            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success" (click)="addNew()"></button>
+            <button pButton pRipple [label]="'buttons.new' | translate" icon="pi pi-plus" class="p-button-success" (click)="addNew()"></button>
         </div>
     </p-toolbar>
 
-    <p-table [value]="contacts" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <p-table [value]="contacts" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [currentPageReportTemplate]="'table.showingEntries' | translate">
         <ng-template pTemplate="header">
             <tr>
-                <th class="p-2">Name</th>
-                <th class="p-2">Email</th>
-                <th class="p-2">Phone</th>
-                <th class="p-2">Actions</th>
+                <th class="p-2">{{ 'contact.firstName' | translate }}</th>
+                <th class="p-2">{{ 'contact.email' | translate }}</th>
+                <th class="p-2">{{ 'contact.phone' | translate }}</th>
+                <th class="p-2">{{ 'buttons.actions' | translate }}</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-contact>
@@ -33,11 +33,11 @@
     </p-table>
 </div>
 
-<p-dialog header="Contact Details" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+<p-dialog [header]="'contact.details' | translate" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
     <div *ngIf="selectedContact">
-        <p><strong>Name:</strong> {{selectedContact.firstName}} {{selectedContact.lastName}}</p>
-        <p><strong>Email:</strong> {{selectedContact.email}}</p>
-        <p><strong>CPF:</strong> {{selectedContact.cpf}}</p>
-        <p><strong>Date Of Birth:</strong> {{selectedContact.dateOfBirth | date:'medium'}}</p>
+        <p><strong>{{ 'contact.firstName' | translate }}:</strong> {{selectedContact.firstName}} {{selectedContact.lastName}}</p>
+        <p><strong>{{ 'contact.email' | translate }}:</strong> {{selectedContact.email}}</p>
+        <p><strong>{{ 'contact.cpf' | translate }}:</strong> {{selectedContact.cpf}}</p>
+        <p><strong>{{ 'contact.dateOfBirth' | translate }}:</strong> {{selectedContact.dateOfBirth | date:'medium'}}</p>
     </div>
 </p-dialog>

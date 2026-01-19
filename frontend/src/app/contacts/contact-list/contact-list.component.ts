@@ -5,6 +5,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 
+import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
@@ -22,6 +23,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     DialogModule,
     ConfirmDialogModule,
     ToolbarModule,
+    TranslateModule,
   ],
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.scss'],

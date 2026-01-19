@@ -9,18 +9,27 @@
     "name": "Nombre",
     "description": "Descripción",
     "cnpj": "CNPJ",
-    "dateFounded": "Fecha de Fundación"
+    "dateFounded": "Fecha de Fundación",
+    "edit": "Editar Empresa",
+    "new": "Nueva Empresa",
+    "details": "Detalles de la Empresa"
   },
   "buttons": {
     "save": "Guardar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "new": "Nuevo",
+    "actions": "Acciones"
   },
   "contact": {
     "firstName": "Nombre",
     "lastName": "Apellido",
     "email": "Correo Electrónico",
     "cpf": "CPF",
-    "dateOfBirth": "Fecha de Nacimiento"
+    "dateOfBirth": "Fecha de Nacimiento",
+    "edit": "Editar Contacto",
+    "new": "Nuevo Contacto",
+    "details": "Detalles del Contacto",
+    "phone": "Teléfono"
   },
   "address": {
     "zip": "Código Postal",
@@ -35,11 +44,18 @@
     "ibge": "IBGE",
     "gia": "GIA",
     "ddd": "DDD",
-    "siafi": "SIAFI"
+    "siafi": "SIAFI",
+    "edit": "Editar Dirección",
+    "new": "Nueva Dirección",
+    "details": "Detalles de la Dirección",
+    "zipCode": "Código Postal"
   },
   "home": {
     "title": "Prube de Concepto",
     "subtitle": "Esta es una aplicación de prueba de concepto desarrollada por Angel Ojea para GFT & Banco Pan, que demuestra las capacidades de las aplicaciones web modernas."
+  },
+  "table": {
+    "showingEntries": "Mostrando {first} a {last} de {totalRecords} entradas"
   },
   "validations": {
     "required": "Este campo es requerido.",

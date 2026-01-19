@@ -5,6 +5,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Address } from '../address';
 import { AddressService } from '../address.service';
 
+import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
@@ -22,6 +23,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     DialogModule,
     ConfirmDialogModule,
     ToolbarModule,
+    TranslateModule,
   ],
   templateUrl: './address-list.component.html',
   styleUrls: ['./address-list.component.scss'],

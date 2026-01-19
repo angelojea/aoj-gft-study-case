@@ -3,18 +3,18 @@
 <div class="card">
     <p-toolbar styleClass="mb-2">
         <div class="p-toolbar-group-start">
-            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success" (click)="addNew()"></button>
+            <button pButton pRipple [label]="'buttons.new' | translate" icon="pi pi-plus" class="p-button-success" (click)="addNew()"></button>
         </div>
     </p-toolbar>
 
-    <p-table [value]="addresses" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <p-table [value]="addresses" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [currentPageReportTemplate]="'table.showingEntries' | translate">
         <ng-template pTemplate="header">
             <tr>
-                <th class="p-2">Street</th>
-                <th class="p-2">City</th>
-                <th class="p-2">State</th>
-                <th class="p-2">Zip Code</th>
-                <th class="p-2">Actions</th>
+                <th class="p-2">{{ 'address.street' | translate }}</th>
+                <th class="p-2">{{ 'address.city' | translate }}</th>
+                <th class="p-2">{{ 'address.state' | translate }}</th>
+                <th class="p-2">{{ 'address.zipCode' | translate }}</th>
+                <th class="p-2">{{ 'buttons.actions' | translate }}</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-address>
@@ -34,18 +34,18 @@
     </p-table>
 </div>
 
-<p-dialog header="Address Details" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+<p-dialog [header]="'address.details' | translate" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
     <div *ngIf="selectedAddress">
-        <p><strong>Street:</strong> {{selectedAddress.street}}</p>
-        <p><strong>Zip:</strong> {{selectedAddress.zip}}</p>
-        <p><strong>Unity:</strong> {{selectedAddress.unity}}</p>
-        <p><strong>Neighborhood:</strong> {{selectedAddress.neighborhood}}</p>
-        <p><strong>City:</strong> {{selectedAddress.city}}</p>
-        <p><strong>State:</strong> {{selectedAddress.uf}}</p>
-        <p><strong>Region:</strong> {{selectedAddress.region}}</p>
-        <p><strong>IBGE:</strong> {{selectedAddress.ibge}}</p>
-        <p><strong>GIA:</strong> {{selectedAddress.gia}}</p>
-        <p><strong>DDD:</strong> {{selectedAddress.ddd}}</p>
-        <p><strong>SIAFI:</strong> {{selectedAddress.siafi}}</p>
+        <p><strong>{{ 'address.street' | translate }}:</strong> {{selectedAddress.street}}</p>
+        <p><strong>{{ 'address.zip' | translate }}:</strong> {{selectedAddress.zip}}</p>
+        <p><strong>{{ 'address.unity' | translate }}:</strong> {{selectedAddress.unity}}</p>
+        <p><strong>{{ 'address.neighborhood' | translate }}:</strong> {{selectedAddress.neighborhood}}</p>
+        <p><strong>{{ 'address.city' | translate }}:</strong> {{selectedAddress.city}}</p>
+        <p><strong>{{ 'address.state' | translate }}:</strong> {{selectedAddress.uf}}</p>
+        <p><strong>{{ 'address.region' | translate }}:</strong> {{selectedAddress.region}}</p>
+        <p><strong>{{ 'address.ibge' | translate }}:</strong> {{selectedAddress.ibge}}</p>
+        <p><strong>{{ 'address.gia' | translate }}:</strong> {{selectedAddress.gia}}</p>
+        <p><strong>{{ 'address.ddd' | translate }}:</strong> {{selectedAddress.ddd}}</p>
+        <p><strong>{{ 'address.siafi' | translate }}:</strong> {{selectedAddress.siafi}}</p>
     </div>
 </p-dialog>

@@ -1,5 +1,5 @@
 <div class="card">
-    <h2>{{ isEditMode ? 'Edit Company' : 'New Company' }}</h2>
+    <h2>{{ isEditMode ? ('company.edit' | translate) : ('company.new' | translate) }}</h2>
     <form [formGroup]="companyForm" >
       <div class="flex flex-col gap-2">
         <div class="field">

@@ -9,18 +9,27 @@
     "name": "Nome",
     "description": "Descrição",
     "cnpj": "CNPJ",
-    "dateFounded": "Data de Fundação"
+    "dateFounded": "Data de Fundação",
+    "edit": "Editar Empresa",
+    "new": "Nova Empresa",
+    "details": "Detalhes da Empresa"
   },
   "buttons": {
     "save": "Salvar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "new": "Novo",
+    "actions": "Ações"
   },
   "contact": {
     "firstName": "Nome",
     "lastName": "Sobrenome",
     "email": "Email",
     "cpf": "CPF",
-    "dateOfBirth": "Data de Nascimento"
+    "dateOfBirth": "Data de Nascimento",
+    "edit": "Editar Contato",
+    "new": "Novo Contato",
+    "details": "Detalhes do Contato",
+    "phone": "Telefone"
   },
   "address": {
     "zip": "CEP",
@@ -35,11 +44,18 @@
     "ibge": "IBGE",
     "gia": "GIA",
     "ddd": "DDD",
-    "siafi": "SIAFI"
+    "siafi": "SIAFI",
+    "edit": "Editar Endereço",
+    "new": "Novo Endereço",
+    "details": "Detalhes do Endereço",
+    "zipCode": "CEP"
   },
   "home": {
     "title": "Prova de Conceito",
     "subtitle": "Este é um aplicativo de prova de conceito developed by Angel Ojea para o GFT & Banco Pan, demonstrando as capacidades de um aplicativo web moderno."
+  },
+  "table": {
+    "showingEntries": "Mostrando {first} a {last} de {totalRecords} registros"
   },
   "validations": {
     "required": "Este campo é obrigatório.",
