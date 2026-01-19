@@ -21,8 +21,8 @@
             <tr>
                 <td class="p-2">{{address.street}}</td>
                 <td class="p-2">{{address.city}}</td>
-                <td class="p-2">{{address.state}}</td>
-                <td class="p-2">{{address.zipCode}}</td>
+                <td class="p-2">{{address.uf}}</td>
+                <td class="p-2">{{address.zip}}</td>
                 <td class="p-2">
                     <div class="flex gap-2">
                         <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-info" (click)="viewDetails(address)"></button>
@@ -37,8 +37,15 @@
 <p-dialog header="Address Details" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
     <div *ngIf="selectedAddress">
         <p><strong>Street:</strong> {{selectedAddress.street}}</p>
+        <p><strong>Zip:</strong> {{selectedAddress.zip}}</p>
+        <p><strong>Unity:</strong> {{selectedAddress.unity}}</p>
+        <p><strong>Neighborhood:</strong> {{selectedAddress.neighborhood}}</p>
         <p><strong>City:</strong> {{selectedAddress.city}}</p>
-        <p><strong>State:</strong> {{selectedAddress.state}}</p>
-        <p><strong>Zip Code:</strong> {{selectedAddress.zipCode}}</p>
+        <p><strong>State:</strong> {{selectedAddress.uf}}</p>
+        <p><strong>Region:</strong> {{selectedAddress.region}}</p>
+        <p><strong>IBGE:</strong> {{selectedAddress.ibge}}</p>
+        <p><strong>GIA:</strong> {{selectedAddress.gia}}</p>
+        <p><strong>DDD:</strong> {{selectedAddress.ddd}}</p>
+        <p><strong>SIAFI:</strong> {{selectedAddress.siafi}}</p>
     </div>
 </p-dialog>

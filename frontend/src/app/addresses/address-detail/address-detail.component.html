@@ -1,6 +1,6 @@
 <div class="card">
     <h2>{{ isEditMode ? 'Edit Address' : 'New Address' }}</h2>
-    <form [formGroup]="addressForm" (ngSubmit)="save()">
+    <form [formGroup]="addressForm">
       <div class="formgrid grid">
         <div class="field col-12 md:col-6">
           <span class="p-float-label">
@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="flex justify-content-end gap-2 mt-2">
-        <button pButton pRipple [label]="'buttons.save' | translate" icon="pi pi-check" class="p-button-success" type="submit" [disabled]="addressForm.invalid"></button>
+        <button pButton pRipple [label]="'buttons.save' | translate" icon="pi pi-check" class="p-button-success" (click)="save()" [disabled]="addressForm.invalid"></button>
         <button pButton pRipple [label]="'buttons.cancel' | translate" icon="pi pi-times" class="p-button-secondary" (click)="cancel()"></button>
       </div>
     </form>

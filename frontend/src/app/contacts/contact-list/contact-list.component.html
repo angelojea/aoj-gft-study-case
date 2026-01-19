@@ -18,7 +18,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-contact>
             <tr>
-                <td class="p-2">{{contact.name}}</td>
+                <td class="p-2">{{contact.firstName}} {{contact.lastName}}</td>
                 <td class="p-2">{{contact.email}}</td>
                 <td class="p-2">{{contact.phone}}</td>
                 <td class="p-2">
@@ -35,8 +35,9 @@
 
 <p-dialog header="Contact Details" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
     <div *ngIf="selectedContact">
-        <p><strong>Name:</strong> {{selectedContact.name}}</p>
+        <p><strong>Name:</strong> {{selectedContact.firstName}} {{selectedContact.lastName}}</p>
         <p><strong>Email:</strong> {{selectedContact.email}}</p>
-        <p><strong>Phone:</strong> {{selectedContact.phone}}</p>
+        <p><strong>CPF:</strong> {{selectedContact.cpf}}</p>
+        <p><strong>Date Of Birth:</strong> {{selectedContact.dateOfBirth | date:'medium'}}</p>
     </div>
 </p-dialog>

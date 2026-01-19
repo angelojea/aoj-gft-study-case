@@ -34,6 +34,8 @@
 <p-dialog header="Company Details" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
     <div *ngIf="selectedCompany">
         <p><strong>Name:</strong> {{selectedCompany.name}}</p>
+        <p><strong>Description:</strong> {{selectedCompany.description}}</p>
         <p><strong>CNPJ:</strong> {{selectedCompany.cnpj}}</p>
+        <p><strong>Date Founded:</strong> {{selectedCompany.dateFounded | date:'medium'}}</p>
     </div>
 </p-dialog>
