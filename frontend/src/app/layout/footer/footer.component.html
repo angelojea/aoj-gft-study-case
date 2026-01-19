@@ -1,0 +1,9 @@
+<div class="footer-container">
+  <p-dropdown
+    [options]="languages"
+    [(ngModel)]="selectedLanguage"
+    (onChange)="switchLang($event.value)"
+    optionLabel="label"
+    optionValue="value"
+  ></p-dropdown>
+</div>

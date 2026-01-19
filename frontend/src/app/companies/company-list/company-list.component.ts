@@ -10,7 +10,6 @@ import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
-import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 
 @Component({
@@ -23,12 +22,11 @@ import { ToolbarModule } from 'primeng/toolbar';
     TableModule,
     DialogModule,
     ConfirmDialogModule,
-    ToastModule,
     ToolbarModule,
   ],
   templateUrl: './company-list.component.html',
   styleUrls: ['./company-list.component.scss'],
-  providers: [ConfirmationService, MessageService, CompanyService],
+  providers: [ConfirmationService],
 })
 export class CompanyListComponent implements OnInit {
   companies: Company[] = [];

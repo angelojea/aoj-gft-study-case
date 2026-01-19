@@ -1,24 +1,31 @@
-<p-toast></p-toast>
 <div class="card">
     <h2>{{ isEditMode ? 'Edit Contact' : 'New Contact' }}</h2>
     <form [formGroup]="contactForm" (ngSubmit)="save()">
-        <div class="p-fluid">
-            <div class="p-field">
-                <label for="name">Name</label>
-                <input id="name" type="text" pInputText formControlName="name">
-            </div>
-            <div class="p-field">
-                <label for="email">Email</label>
-                <input id="email" type="text" pInputText formControlName="email">
-            </div>
-            <div class="p-field">
-                <label for="phone">Phone</label>
-                <input id="phone" type="text" pInputText formControlName="phone">
-            </div>
+      <div class="p-fluid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+          <label for="firstName">{{ 'contact.firstName' | translate }}</label>
+          <input id="firstName" type="text" pInputText formControlName="firstName">
         </div>
-        <div class="p-toolbar-group-end mt-2">
-            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-success" type="submit" [disabled]="contactForm.invalid"></button>
-            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-secondary ml-2" (click)="cancel()"></button>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="lastName">{{ 'contact.lastName' | translate }}</label>
+          <input id="lastName" type="text" pInputText formControlName="lastName">
         </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="email">{{ 'contact.email' | translate }}</label>
+          <input id="email" type="text" pInputText formControlName="email">
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="cpf">{{ 'contact.cpf' | translate }}</label>
+          <input id="cpf" type="text" pInputText formControlName="cpf">
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="dateOfBirth">{{ 'contact.dateOfBirth' | translate }}</label>
+          <input id="dateOfBirth" type="date" pInputText formControlName="dateOfBirth">
+        </div>
+      </div>
+      <div class="p-toolbar-group-end mt-2">
+        <button pButton pRipple [label]="'buttons.save' | translate" icon="pi pi-check" class="p-button-success" type="submit" [disabled]="contactForm.invalid"></button>
+        <button pButton pRipple [label]="'buttons.cancel' | translate" icon="pi pi-times" class="p-button-secondary ml-2" (click)="cancel()"></button>
+      </div>
     </form>
 </div>

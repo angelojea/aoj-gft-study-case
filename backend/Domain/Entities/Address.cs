@@ -50,7 +50,4 @@ public class Address
 
     [StringLength(6, MinimumLength = 5)]
     public string? Siafi { get; set; }
-
-    public Guid? CompanyId { get; set; }
-    public Company? Company { get; set; }
 }

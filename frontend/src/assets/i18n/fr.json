@@ -1,0 +1,40 @@
+{
+  "menu": {
+    "home": "Accueil",
+    "companies": "Entreprises",
+    "contacts": "Contacts",
+    "addresses": "Adresses"
+  },
+  "company": {
+    "name": "Nom",
+    "description": "Description",
+    "cnpj": "CNPJ",
+    "dateFounded": "Date de Fondation"
+  },
+  "buttons": {
+    "save": "Enregistrer",
+    "cancel": "Annuler"
+  },
+  "contact": {
+    "firstName": "Prénom",
+    "lastName": "Nom de Famille",
+    "email": "Email",
+    "cpf": "CPF",
+    "dateOfBirth": "Date de Naissance"
+  },
+  "address": {
+    "zip": "Code Postal",
+    "street": "Rue",
+    "complement": "Complément",
+    "unity": "Unité",
+    "neighborhood": "Quartier",
+    "city": "Ville",
+    "uf": "UF",
+    "state": "État",
+    "region": "Région",
+    "ibge": "IBGE",
+    "gia": "GIA",
+    "ddd": "DDD",
+    "siafi": "SIAFI"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "menu": {
+    "home": "Home",
+    "companies": "Companies",
+    "contacts": "Contacts",
+    "addresses": "Addresses"
+  },
+  "company": {
+    "name": "Name",
+    "description": "Description",
+    "cnpj": "CNPJ",
+    "dateFounded": "Date Founded"
+  },
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "contact": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "cpf": "CPF",
+    "dateOfBirth": "Date of Birth"
+  },
+  "address": {
+    "zip": "Zip",
+    "street": "Street",
+    "complement": "Complement",
+    "unity": "Unity",
+    "neighborhood": "Neighborhood",
+    "city": "City",
+    "uf": "UF",
+    "state": "State",
+    "region": "Region",
+    "ibge": "IBGE",
+    "gia": "GIA",
+    "ddd": "DDD",
+    "siafi": "SIAFI"
+  }
+}

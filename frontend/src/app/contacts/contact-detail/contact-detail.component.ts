@@ -12,9 +12,9 @@ import { MessageService } from 'primeng/api';
 import { ContactService } from '../contact.service';
 
 // PrimeNG Modules
+import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-contact-detail',
@@ -26,11 +26,10 @@ import { ToastModule } from 'primeng/toast';
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
-    ToastModule,
+    TranslateModule,
   ],
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.scss'],
-  providers: [MessageService, ContactService],
 })
 export class ContactDetailComponent implements OnInit {
   contactForm: FormGroup;
@@ -45,9 +44,25 @@ export class ContactDetailComponent implements OnInit {
     private messageService: MessageService,
   ) {
     this.contactForm = this.fb.group({
-      name: ['', Validators.required],
+      firstName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(100),
+        ],
+      ],
+      lastName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(100),
+        ],
+      ],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+      cpf: ['', [Validators.required, this.cpfValidator]],
+      dateOfBirth: ['', [Validators.required, this.dateOfBirthValidator]],
     });
   }
 
@@ -92,6 +107,30 @@ export class ContactDetailComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['/contacts']);
+    window.history.back();
+  }
+
+  private cpfValidator(control: any): { [key: string]: boolean } | null {
+    const cpf = control.value.replace(/\D/g, '');
+    if (cpf.length !== 11) {
+      return { cpfNotValid: true };
+    }
+    return null;
+  }
+
+  private dateOfBirthValidator(
+    control: any,
+  ): { [key: string]: boolean } | null {
+    const date = new Date(control.value);
+    const today = new Date();
+    const tenYearsAgo = new Date(
+      today.getFullYear() - 10,
+      today.getMonth(),
+      today.getDate(),
+    );
+    if (date > tenYearsAgo) {
+      return { dateOfBirthNotOldEnough: true };
+    }
+    return null;
   }
 }

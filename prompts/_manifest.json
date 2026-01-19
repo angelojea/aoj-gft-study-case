@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "base_path": "./prompts",
+  "prompts": [
+    {
+      "id": "bootstrap-backend",
+      "name": "Bootstrap Backend",
+      "path": "./bootstrap-backend.md",
+      "model": "gemini-2.5-pro"
+    },
+    {
+      "id": "backend-add-create-by-zip",
+      "name": "Backend Add Create By Zip",
+      "path": "./backend-add-create-by-zip.md",
+      "model": "gemini-2.5-pro"
+    },
+    {
+      "id": "bootstrap-frontend",
+      "name": "Bootstrap Frontend",
+      "path": "./bootstrap-frontend.md",
+      "model": "gemini-2.5-pro"
+    }
+  ]
+}

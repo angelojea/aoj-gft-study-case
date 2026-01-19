@@ -16,12 +16,6 @@ public class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Company>()
-            .HasOne(c => c.Address)
-            .WithOne(a => a.Company)
-            .HasForeignKey<Address>(a => a.CompanyId)
-            .OnDelete(DeleteBehavior.SetNull);
-
-        modelBuilder.Entity<Company>()
             .HasMany(c => c.Contacts)
             .WithOne(c => c.Company)
             .HasForeignKey(c => c.CompanyId)

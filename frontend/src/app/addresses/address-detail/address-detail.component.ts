@@ -12,9 +12,9 @@ import { MessageService } from 'primeng/api';
 import { AddressService } from '../address.service';
 
 // PrimeNG Modules
+import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-address-detail',
@@ -26,11 +26,10 @@ import { ToastModule } from 'primeng/toast';
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
-    ToastModule,
+    TranslateModule,
   ],
   templateUrl: './address-detail.component.html',
   styleUrls: ['./address-detail.component.scss'],
-  providers: [MessageService, AddressService],
 })
 export class AddressDetailComponent implements OnInit {
   addressForm: FormGroup;
@@ -45,10 +44,7 @@ export class AddressDetailComponent implements OnInit {
     private messageService: MessageService,
   ) {
     this.addressForm = this.fb.group({
-      street: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      zipCode: ['', Validators.required],
+      zip: ['', [Validators.required, Validators.pattern(/^\d{8}$/)]],
     });
   }
 
@@ -93,6 +89,6 @@ export class AddressDetailComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['/addresses']);
+    window.history.back();
   }
 }

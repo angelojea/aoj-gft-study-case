@@ -12,9 +12,9 @@ import { MessageService } from 'primeng/api';
 import { CompanyService } from '../company.service';
 
 // PrimeNG Modules
+import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-company-detail',
@@ -26,11 +26,10 @@ import { ToastModule } from 'primeng/toast';
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
-    ToastModule,
+    TranslateModule,
   ],
   templateUrl: './company-detail.component.html',
   styleUrls: ['./company-detail.component.scss'],
-  providers: [MessageService, CompanyService],
 })
 export class CompanyDetailComponent implements OnInit {
   companyForm: FormGroup;
@@ -45,8 +44,24 @@ export class CompanyDetailComponent implements OnInit {
     private messageService: MessageService,
   ) {
     this.companyForm = this.fb.group({
-      name: ['', Validators.required],
-      cnpj: ['', Validators.required],
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(100),
+        ],
+      ],
+      description: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(100),
+        ],
+      ],
+      cnpj: ['', [Validators.required, this.cnpjValidator]],
+      dateFounded: ['', [Validators.required, this.dateFoundedValidator]],
     });
   }
 
@@ -91,6 +106,24 @@ export class CompanyDetailComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['/companies']);
+    window.history.back();
+  }
+
+  private cnpjValidator(control: any): { [key: string]: boolean } | null {
+    const cnpj = control.value.replace(/\D/g, '');
+    if (cnpj.length !== 14) {
+      return { cnpjNotValid: true };
+    }
+    return null;
+  }
+
+  private dateFoundedValidator(
+    control: any,
+  ): { [key: string]: boolean } | null {
+    const date = new Date(control.value);
+    if (date > new Date()) {
+      return { dateFoundedInFuture: true };
+    }
+    return null;
   }
 }

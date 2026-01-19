@@ -1,5 +1,6 @@
 using Application.Interfaces;
 using Application.Services;
+using Application.Dtos;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,9 +38,9 @@ public class AddressesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateFromZip(string zipCode)
+    public async Task<IActionResult> CreateFromZip([FromBody] CreateAddressFromZipRequest request)
     {
-        var viaCepAddress = await _viaCepService.GetAddressByZipCodeAsync(zipCode);
+        var viaCepAddress = await _viaCepService.GetAddressByZipCodeAsync(request.zip);
         if (viaCepAddress == null)
         {
             return NotFound("Zip code not found.");
