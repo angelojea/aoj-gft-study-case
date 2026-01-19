@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "install-deps": "concurrently \"npm:deps-frontend\" \"npm:deps-backend\"",
     "start": "concurrently \"npm:dev-frontend\" \"npm:dev-backend\"",
-    "dev": "concurrently \"npm:dev-frontend\" \"npm:dev-backend\"",
-    "prod": "concurrently \"npm:prod-frontend\" \"npm:prod-backend\"",
+    "start:prod": "concurrently \"npm:prod-frontend\" \"npm:prod-backend\"",
     "dev-frontend": "cd frontend && npm start",
     "prod-frontend": "cd frontend && npm run build",
     "dev-backend": "cd backend/BackendApi && dotnet watch run",
-    "prod-backend": "cd backend/BackendApi && dotnet run"
+    "prod-backend": "cd backend/BackendApi && dotnet run",
+    "deps-frontend": "cd frontend && npm i",
+    "deps-backend": "cd backend && dotnet restore"
   },
   "author": "",
   "license": "ISC",

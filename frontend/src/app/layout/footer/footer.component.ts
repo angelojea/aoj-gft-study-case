@@ -37,16 +37,31 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isDarkMode = this.document.documentElement.classList.contains('dark');
+    this.isDarkMode =
+      localStorage.getItem('isDarkMode') === 'true' ||
+      this.document.documentElement.classList.contains('dark');
+    if (this.isDarkMode) {
+      this.document.documentElement.classList.add('dark');
+    } else {
+      this.document.documentElement.classList.remove('dark');
+    }
     this.updatePrimeNgTheme();
+
+    const sessionLang = localStorage.getItem('selectedLanguage');
+    if (sessionLang) {
+      this.translate.use(sessionLang);
+      this.selectedLanguage = sessionLang;
+    }
   }
 
   switchLang(lang: string) {
     this.translate.use(lang);
+    localStorage.setItem('selectedLanguage', lang);
   }
 
   toggleTheme(): void {
     this.isDarkMode = !this.isDarkMode;
+    localStorage.setItem('isDarkMode', this.isDarkMode.toString());
     if (this.isDarkMode) {
       this.document.documentElement.classList.add('dark');
     } else {
