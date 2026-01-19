@@ -1,7 +1,7 @@
 <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
 
 <div class="card">
-    <p-toolbar>
+    <p-toolbar styleClass="mb-2">
         <div class="p-toolbar-group-start">
             <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success" (click)="addNew()"></button>
         </div>
@@ -10,23 +10,25 @@
     <p-table [value]="addresses" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
         <ng-template pTemplate="header">
             <tr>
-                <th>Street</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zip Code</th>
-                <th>Actions</th>
+                <th class="p-2">Street</th>
+                <th class="p-2">City</th>
+                <th class="p-2">State</th>
+                <th class="p-2">Zip Code</th>
+                <th class="p-2">Actions</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-address>
             <tr>
-                <td>{{address.street}}</td>
-                <td>{{address.city}}</td>
-                <td>{{address.state}}</td>
-                <td>{{address.zipCode}}</td>
-                <td>
-                    <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-info mr-2" (click)="viewDetails(address)"></button>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editAddress(address)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteAddress(address)"></button>
+                <td class="p-2">{{address.street}}</td>
+                <td class="p-2">{{address.city}}</td>
+                <td class="p-2">{{address.state}}</td>
+                <td class="p-2">{{address.zipCode}}</td>
+                <td class="p-2">
+                    <div class="flex gap-2">
+                        <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-info" (click)="viewDetails(address)"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success" (click)="editAddress(address)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteAddress(address)"></button>
+                    </div>
                 </td>
             </tr>
         </ng-template>

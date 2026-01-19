@@ -1,27 +1,27 @@
 <div class="card">
     <h2>{{ isEditMode ? 'Edit Company' : 'New Company' }}</h2>
     <form [formGroup]="companyForm" (ngSubmit)="save()">
-      <div class="p-fluid p-grid">
-        <div class="p-field p-col-12 p-md-6">
+      <div class="formgrid grid">
+        <div class="field col-12 md:col-6">
           <label for="name">{{ 'company.name' | translate }}</label>
           <input id="name" type="text" pInputText formControlName="name">
         </div>
-        <div class="p-field p-col-12 p-md-6">
+        <div class="field col-12 md:col-6">
           <label for="description">{{ 'company.description' | translate }}</label>
           <input id="description" type="text" pInputText formControlName="description">
         </div>
-        <div class="p-field p-col-12 p-md-6">
+        <div class="field col-12 md:col-6">
           <label for="cnpj">{{ 'company.cnpj' | translate }}</label>
           <input id="cnpj" type="text" pInputText formControlName="cnpj">
         </div>
-        <div class="p-field p-col-12 p-md-6">
+        <div class="field col-12 md:col-6">
           <label for="dateFounded">{{ 'company.dateFounded' | translate }}</label>
           <input id="dateFounded" type="date" pInputText formControlName="dateFounded">
         </div>
       </div>
-      <div class="p-toolbar-group-end mt-2">
+      <div class="flex justify-content-end gap-2 mt-2">
         <button pButton pRipple [label]="'buttons.save' | translate" icon="pi pi-check" class="p-button-success" type="submit" [disabled]="companyForm.invalid"></button>
-        <button pButton pRipple [label]="'buttons.cancel' | translate" icon="pi pi-times" class="p-button-secondary ml-2" (click)="cancel()"></button>
+        <button pButton pRipple [label]="'buttons.cancel' | translate" icon="pi pi-times" class="p-button-secondary" (click)="cancel()"></button>
       </div>
     </form>
 </div>
