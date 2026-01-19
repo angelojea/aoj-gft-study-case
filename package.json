@@ -12,7 +12,7 @@
     "dev-backend": "cd backend/BackendApi && dotnet watch run",
     "prod-backend": "cd backend/BackendApi && dotnet run",
     "deps-frontend": "cd frontend && npm i",
-    "deps-backend": "cd backend && dotnet restore"
+    "deps-backend": "cd backend/BackendApi && dotnet restore"
   },
   "author": "",
   "license": "ISC",
