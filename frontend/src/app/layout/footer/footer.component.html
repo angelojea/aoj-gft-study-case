@@ -1,4 +1,4 @@
-<div class="footer-container p-4">
+<div class="footer-container p-4 flex justify-between items-center">
   <p-dropdown
     [options]="languages"
     [(ngModel)]="selectedLanguage"
@@ -6,4 +6,12 @@
     optionLabel="label"
     optionValue="value"
   ></p-dropdown>
+
+  <button
+    pButton
+    type="button"
+    (click)="toggleTheme()"
+    [icon]="isDarkMode ? 'pi pi-sun' : 'pi pi-moon'"
+    class="p-button-rounded p-button-text"
+  ></button>
 </div>

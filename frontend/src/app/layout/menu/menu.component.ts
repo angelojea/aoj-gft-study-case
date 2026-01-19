@@ -7,7 +7,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [RouterModule, ToolbarModule, ButtonModule, TranslateModule],
+  imports: [RouterModule, ButtonModule, TranslateModule, ToolbarModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })

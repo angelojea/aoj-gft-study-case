@@ -11,12 +11,11 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ContactService } from '../contact.service';
 
-import { CustomValidators } from '../../shared/validators/validations';
-// PrimeNG Modules
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
+import { CustomValidators } from '../../shared/validators/validations';
 
 @Component({
   selector: 'app-contact-detail',
@@ -52,7 +51,7 @@ export class ContactDetailComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(5),
+          Validators.minLength(3),
           Validators.maxLength(100),
         ],
       ],
@@ -60,7 +59,7 @@ export class ContactDetailComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(5),
+          Validators.minLength(3),
           Validators.maxLength(100),
         ],
       ],
@@ -78,6 +77,7 @@ export class ContactDetailComponent implements OnInit {
     if (this.contactId) {
       this.isEditMode = true;
       this.contactService.getContact(this.contactId).subscribe((contact) => {
+        contact.dateOfBirth = new Date(contact.dateOfBirth);
         this.contactForm.patchValue(contact);
       });
     }

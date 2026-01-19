@@ -3,5 +3,5 @@ export interface Company {
   name: string;
   description: string;
   cnpj: string;
-  dateFounded: string;
+  dateFounded: Date;
 }

@@ -1,8 +1,8 @@
 <div class="card">
     <h2>{{ isEditMode ? 'Edit Address' : 'New Address' }}</h2>
     <form [formGroup]="addressForm">
-      <div class="formgrid grid">
-        <div class="field col-12 md:col-6">
+      <div class="flex flex-col gap-2">
+        <div class="field">
           <span class="p-float-label">
             <input id="zip" type="text" pInputText formControlName="zip" class="w-full">
             <label for="zip">{{ 'address.zip' | translate }}</label>

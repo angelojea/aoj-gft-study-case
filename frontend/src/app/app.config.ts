@@ -14,7 +14,6 @@ import { provideRouter } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MessageService } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
 
 import { routes } from './app.routes';
 import { HttpSpinnerInterceptor } from './shared/interceptors/http-spinner.interceptor';
@@ -36,8 +35,7 @@ export const appConfig: ApplicationConfig = {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient],
         },
-      }),
-      ToastModule,
+      })
     ),
     MessageService,
     {
@@ -45,5 +43,6 @@ export const appConfig: ApplicationConfig = {
       useClass: HttpSpinnerInterceptor,
       multi: true,
     },
+    // providePrimeNG,
   ],
 };

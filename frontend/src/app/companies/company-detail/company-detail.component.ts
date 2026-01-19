@@ -11,12 +11,11 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { CompanyService } from '../company.service';
 
-import { CustomValidators } from '../../shared/validators/validations';
-// PrimeNG Modules
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
+import { CustomValidators } from '../../shared/validators/validations';
 
 @Component({
   selector: 'app-company-detail',
@@ -76,6 +75,7 @@ export class CompanyDetailComponent implements OnInit {
     if (this.companyId) {
       this.isEditMode = true;
       this.companyService.getCompany(this.companyId).subscribe((company) => {
+        company.dateFounded = new Date(company.dateFounded);
         this.companyForm.patchValue(company);
       });
     }
